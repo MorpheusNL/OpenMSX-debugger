@@ -737,9 +737,8 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AQF-74-xHW">
-                                <rect key="frame" x="92" y="57" width="92" height="32"/>
+                                <rect key="frame" x="191" y="57" width="92" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="6dZ-D6-vDS"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="rWl-OK-CZx"/>
                                 </constraints>
                                 <buttonCell key="cell" type="push" title="Connect" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q2e-5r-p6S">
@@ -750,16 +749,31 @@
                                     <action selector="onConnectButtonPressed:" target="XfG-lQ-9wD" id="TF2-s0-uMj"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DL9-ee-fRh">
+                                <rect key="frame" x="291" y="57" width="82" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="GMI-po-vBb"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Socket" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pg3-4H-Bff">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onSocketButtonPressed:" target="XfG-lQ-9wD" id="gsm-Kh-WRr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DL9-ee-fRh" secondAttribute="trailing" constant="20" id="26P-NW-Q77"/>
                             <constraint firstItem="3qG-yv-236" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="BQp-fM-iAD"/>
+                            <constraint firstItem="DL9-ee-fRh" firstAttribute="top" secondItem="NSv-Ut-j1b" secondAttribute="bottom" constant="20" id="Fc0-l9-v0I"/>
+                            <constraint firstItem="DL9-ee-fRh" firstAttribute="leading" secondItem="AQF-74-xHW" secondAttribute="trailing" constant="20" id="Jm6-vE-tyB"/>
                             <constraint firstItem="NSv-Ut-j1b" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="K2D-Qg-PGj"/>
                             <constraint firstItem="3qG-yv-236" firstAttribute="top" secondItem="NSv-Ut-j1b" secondAttribute="bottom" constant="20" id="OJ9-Bt-jzq"/>
                             <constraint firstAttribute="trailing" secondItem="NSv-Ut-j1b" secondAttribute="trailing" constant="20" id="ZHV-UW-S03"/>
-                            <constraint firstItem="AQF-74-xHW" firstAttribute="leading" secondItem="3qG-yv-236" secondAttribute="trailing" constant="20" id="evH-Nf-54y"/>
+                            <constraint firstItem="AQF-74-xHW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3qG-yv-236" secondAttribute="trailing" constant="20" id="evH-Nf-54y"/>
                             <constraint firstItem="NSv-Ut-j1b" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="jRc-qO-UbY"/>
                             <constraint firstItem="AQF-74-xHW" firstAttribute="top" secondItem="NSv-Ut-j1b" secondAttribute="bottom" constant="20" id="mnV-tm-zm6"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AQF-74-xHW" secondAttribute="trailing" constant="20" id="oeB-Ns-rE8"/>
                         </constraints>
                     </view>
                     <connections>

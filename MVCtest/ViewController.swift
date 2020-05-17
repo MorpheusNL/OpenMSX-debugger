@@ -11,6 +11,8 @@ import Cocoa
 class ViewController: NSViewController {
     
     @IBOutlet weak var contentsLabel: NSTextField!
+    
+    let MySock = SockData()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,26 +28,20 @@ class ViewController: NSViewController {
     }
 
     @IBAction func onConnectButtonPressed(_ sender: NSButton) {
-//        let myFileDialog = NSOpenPanel()
-//        myFileDialog.canChooseFiles = true
-//        myFileDialog.canChooseDirectories = true
-//        myFileDialog.resolvesAliases = true
-//        myFileDialog.allowsMultipleSelection = true
-//        myFileDialog.isAccessoryViewDisclosed = true
-//        myFileDialog.runModal()
-//        print(myFileDialog.url?.path)
         sender.title = "Reset"
         contentsLabel.stringValue = ""
     }
     
     @IBAction func onLoadButtonPressed(_ sender: Any) {
-        let MySock = SockData()
 //        let message = MySock.loadData()
 //        contentsLabel.stringValue = message
         MySock.loadData()
-        
     }
     
+    @IBAction func onSocketButtonPressed(_ sender: Any) {
+        MySock.loadSocket()
+    }
+        
     @objc func onDidReceiveMessage(_ notification: Notification) {
         if let data = notification.userInfo as? [String: String] {
             if let message = data["MESSAGE"] {

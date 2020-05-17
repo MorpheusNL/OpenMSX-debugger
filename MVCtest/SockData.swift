@@ -43,5 +43,9 @@ class SockData {
         let message = ["MESSAGE": content ]
         NotificationCenter.default.post(name: .didReceiveData, object: nil, userInfo: message)
     }
+    
+    func loadSocket() {
+        print("in function loadSocket()")
+    }
 }
 
