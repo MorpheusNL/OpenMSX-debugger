@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +675,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="MVCtest" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,15 +705,70 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="MVCtest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="387" height="225"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="NSv-Ut-j1b">
+                                <rect key="frame" x="20" y="105" width="347" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="PYz-pP-P7E"/>
+                                </constraints>
+                                <textFieldCell key="cell" selectable="YES" borderStyle="border" title="Multiline Label" drawsBackground="YES" id="NMS-7z-6Oq">
+                                    <font key="font" size="13" name="CourierNewPSMT"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3qG-yv-236">
+                                <rect key="frame" x="14" y="57" width="70" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="65J-hR-9dz"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="58" id="Rlr-lF-9mO"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="58" id="Vy4-Xd-yuG"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Load" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bPl-Kp-RIg">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onLoadButtonPressed:" target="XfG-lQ-9wD" id="1y7-Ir-LM9"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AQF-74-xHW">
+                                <rect key="frame" x="92" y="57" width="92" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="6dZ-D6-vDS"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="rWl-OK-CZx"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Connect" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q2e-5r-p6S">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onConnectButtonPressed:" target="XfG-lQ-9wD" id="TF2-s0-uMj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="3qG-yv-236" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="BQp-fM-iAD"/>
+                            <constraint firstItem="NSv-Ut-j1b" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="K2D-Qg-PGj"/>
+                            <constraint firstItem="3qG-yv-236" firstAttribute="top" secondItem="NSv-Ut-j1b" secondAttribute="bottom" constant="20" id="OJ9-Bt-jzq"/>
+                            <constraint firstAttribute="trailing" secondItem="NSv-Ut-j1b" secondAttribute="trailing" constant="20" id="ZHV-UW-S03"/>
+                            <constraint firstItem="AQF-74-xHW" firstAttribute="leading" secondItem="3qG-yv-236" secondAttribute="trailing" constant="20" id="evH-Nf-54y"/>
+                            <constraint firstItem="NSv-Ut-j1b" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="jRc-qO-UbY"/>
+                            <constraint firstItem="AQF-74-xHW" firstAttribute="top" secondItem="NSv-Ut-j1b" secondAttribute="bottom" constant="20" id="mnV-tm-zm6"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AQF-74-xHW" secondAttribute="trailing" constant="20" id="oeB-Ns-rE8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentsLabel" destination="NSv-Ut-j1b" id="enE-mq-zL2"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="76" y="674"/>
         </scene>
     </scenes>
 </document>
