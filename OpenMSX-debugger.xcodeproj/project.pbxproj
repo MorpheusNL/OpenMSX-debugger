@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		83F5DF76246FEB1D005DA894 /* MVCtest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVCtest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83F5DF76246FEB1D005DA894 /* OpenMSX-debugger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenMSX-debugger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83F5DF79246FEB1D005DA894 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83F5DF7B246FEB1D005DA894 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		83F5DF7D246FEB1E005DA894 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,7 +39,7 @@
 		83F5DF6D246FEB1D005DA894 = {
 			isa = PBXGroup;
 			children = (
-				83F5DF78246FEB1D005DA894 /* MVCtest */,
+				83F5DF78246FEB1D005DA894 /* OpenMSX-debugger */,
 				83F5DF77246FEB1D005DA894 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,12 +47,12 @@
 		83F5DF77246FEB1D005DA894 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				83F5DF76246FEB1D005DA894 /* MVCtest.app */,
+				83F5DF76246FEB1D005DA894 /* OpenMSX-debugger.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		83F5DF78246FEB1D005DA894 /* MVCtest */ = {
+		83F5DF78246FEB1D005DA894 /* OpenMSX-debugger */ = {
 			isa = PBXGroup;
 			children = (
 				83F5DF79246FEB1D005DA894 /* AppDelegate.swift */,
@@ -63,15 +63,15 @@
 				83F5DF82246FEB1E005DA894 /* Info.plist */,
 				83F5DF83246FEB1E005DA894 /* MVCtest.entitlements */,
 			);
-			path = MVCtest;
+			path = "OpenMSX-debugger";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		83F5DF75246FEB1D005DA894 /* MVCtest */ = {
+		83F5DF75246FEB1D005DA894 /* OpenMSX-debugger */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 83F5DF86246FEB1E005DA894 /* Build configuration list for PBXNativeTarget "MVCtest" */;
+			buildConfigurationList = 83F5DF86246FEB1E005DA894 /* Build configuration list for PBXNativeTarget "OpenMSX-debugger" */;
 			buildPhases = (
 				83F5DF72246FEB1D005DA894 /* Sources */,
 				83F5DF73246FEB1D005DA894 /* Frameworks */,
@@ -81,9 +81,9 @@
 			);
 			dependencies = (
 			);
-			name = MVCtest;
+			name = "OpenMSX-debugger";
 			productName = MVCtest;
-			productReference = 83F5DF76246FEB1D005DA894 /* MVCtest.app */;
+			productReference = 83F5DF76246FEB1D005DA894 /* OpenMSX-debugger.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -101,7 +101,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83F5DF71246FEB1D005DA894 /* Build configuration list for PBXProject "MVCtest" */;
+			buildConfigurationList = 83F5DF71246FEB1D005DA894 /* Build configuration list for PBXProject "OpenMSX-debugger" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -114,7 +114,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				83F5DF75246FEB1D005DA894 /* MVCtest */,
+				83F5DF75246FEB1D005DA894 /* OpenMSX-debugger */,
 			);
 		};
 /* End PBXProject section */
@@ -273,19 +273,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MVCtest/MVCtest.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "OpenMSX-debugger/OpenMSX-debugger.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3NE8S2V945;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = MVCtest/Info.plist;
+				INFOPLIST_FILE = "OpenMSX-debugger/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = nl.CSolutions.MVCtest;
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.CSolutions.OpenMSX-debugger";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -295,19 +295,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MVCtest/MVCtest.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "OpenMSX-debugger/OpenMSX-debugger.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3NE8S2V945;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = MVCtest/Info.plist;
+				INFOPLIST_FILE = "OpenMSX-debugger/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = nl.CSolutions.MVCtest;
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.CSolutions.OpenMSX-debugger";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -316,7 +316,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		83F5DF71246FEB1D005DA894 /* Build configuration list for PBXProject "MVCtest" */ = {
+		83F5DF71246FEB1D005DA894 /* Build configuration list for PBXProject "OpenMSX-debugger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83F5DF84246FEB1E005DA894 /* Debug */,
@@ -325,7 +325,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83F5DF86246FEB1E005DA894 /* Build configuration list for PBXNativeTarget "MVCtest" */ = {
+		83F5DF86246FEB1E005DA894 /* Build configuration list for PBXNativeTarget "OpenMSX-debugger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83F5DF87246FEB1E005DA894 /* Debug */,
