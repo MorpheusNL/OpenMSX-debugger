@@ -20,6 +20,8 @@ class ViewController: NSViewController {
 
     @IBOutlet weak var logText: NSTextFieldCell!
     
+    @IBOutlet weak var debugMemoryLocation: NSTextField!
+    @IBOutlet weak var debugMemoryInfo: NSTextField!
     
     let MySock = SockData()
     
@@ -34,6 +36,7 @@ class ViewController: NSViewController {
         // setup Observer to receive a message when the file has downloaded
         NotificationCenter.default.addObserver(self, selector:#selector(onDidReceiveMessage), name: .didReceiveData, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(onDidReceiveBreakpoint), name: .didReceiveBreakpoint, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveMemory), name: .didReceiveMemory, object: nil)
     }
 
     override var representedObject: Any? {
@@ -48,7 +51,7 @@ class ViewController: NSViewController {
         } else {
             let alert = NSAlert()
             alert.messageText = "PID not valid"
-            alert.informativeText = "Please enter a valid PID number for the OpenMSX emulator. To find this number open a terminal and type:\n\nlsof -U | grep -i openmsx\n\nThe PID is the number of the extension of the socket filename."
+            alert.informativeText = "Please enter a valid PID number for the OpenMSX emulator. To find this number open a terminal and type:\n\nlsof -U | grep -i openmsx\n\nThe PID is the number of the extension of the socket filename.\nAlternatively open the debug console in OpenMSX and type pid."
             alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
         }
     }
@@ -91,7 +94,7 @@ class ViewController: NSViewController {
     @IBAction func infoButtonPressed(_ sender: Any) {
         let alert = NSAlert()
         alert.messageText = "OpenMSX Debugger"
-        alert.informativeText = "Connect the OpenMSX Debugger with OpenMSX running. First determine the PID of the OpenMSX emulator and click Connect. The Z80 registers can be read out using Regs. If needed power on/off your virtual MSX by clicking the power button."
+        alert.informativeText = "Connect the OpenMSX Debugger with OpenMSX running. First determine the PID of the OpenMSX emulator and click Connect.\n\nTo determine the PID open the debug console in OpenMSX (CMD+L in MacOS) and type PID.\n\nThe Z80 registers can be read out using Regs. If needed power on/off your virtual MSX by clicking the power button."
         alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
     
@@ -130,6 +133,10 @@ class ViewController: NSViewController {
         
     }
     
+    @IBAction func memoryReadButtonPressed(_ sender: Any) {
+        MySock.writeSocket(message: "<command>showmem \(debugMemoryLocation.stringValue)</command>", userInfo: "SHOWMEM")
+    }
+    
     @objc func onDidReceiveMessage(_ notification: Notification) {
         if let data = notification.userInfo as? [String: String] {
             if let message = data["MESSAGE"] {
@@ -157,9 +164,18 @@ class ViewController: NSViewController {
             }
         }
     }
+    
+    @objc func onDidReceiveMemory(_ notification: Notification) {
+        if let data = notification.userInfo as? [String: String] {
+            if let message = data["SHOWMEM"] {
+                debugMemoryInfo.stringValue = message
+            }
+        }
+    }
 }
 
 extension Notification.Name {
     static let didReceiveData = Notification.Name("didReceiveData")
     static let didReceiveBreakpoint = Notification.Name("didReceiveBreakpoint")
+    static let didReceiveMemory = Notification.Name("didReceiveMemory")
 }

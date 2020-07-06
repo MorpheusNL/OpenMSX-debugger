@@ -20,7 +20,7 @@ import Foundation
  */
 struct SockData {
     let socketDescriptor : Int32
-    let receiveBufferSize : Int = 512
+    let receiveBufferSize : Int = 1024
     
     // create dispatch queue for asynchronous socket operation
 //    let dqueue = DispatchQueue(label: "MorpheusNL")
@@ -130,7 +130,7 @@ struct SockData {
     }
     
     // read data from already connected socket
-    func readSocket(name aName: NSNotification.Name) {
+    func readSocket(name aName: NSNotification.Name, userInfo: String = "") {
             let receiveBuffer = UnsafeMutablePointer<UInt8>.allocate(capacity: receiveBufferSize)
             
             receiveBuffer.initialize(repeating: 0, count: receiveBufferSize)
@@ -147,7 +147,13 @@ struct SockData {
                 let rxRawBufferPointer = UnsafeRawBufferPointer(start: receiveRawBuffer, count: self.receiveBufferSize)
                 let content = self.convertSpecialCharacters(string: String.init(bytes: rxRawBufferPointer, encoding: .utf8) ?? "No reply")
                 let str = content.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-                let message = ["BREAKPOINTS":  str ]
+                var message: [String:String] = ["":""]
+                switch userInfo {
+                case "SHOWMEM":
+                    message = ["SHOWMEM": str]
+                default:
+                    message = ["BREAKPOINTS":  str ]
+                }
                 NotificationCenter.default.post(name: aName, object: nil, userInfo: message)
             }
                     
@@ -169,11 +175,16 @@ struct SockData {
             return newString
     }
 
-    func writeSocket(message: String) {
+    func writeSocket(message: String, userInfo: String="") {
         if let data = message.data(using: .utf8) {
             data.withUnsafeBytes( {write(socketDescriptor, $0, message.count)} )
         }
-        readSocket()
+        if userInfo == "" {
+            readSocket()
+        }
+        if userInfo == "SHOWMEM" {
+            readSocket(name: .didReceiveMemory, userInfo: userInfo)
+        }
         
     }
     
